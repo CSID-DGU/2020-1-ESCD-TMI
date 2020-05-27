@@ -6,7 +6,10 @@ const session = require("express-session");
 const flash = require("connect-flash");
 require("dotenv").config();
 
+const sequelize = require("./models").sequelize;
+
 const app = express();
+sequelize.sync();
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
