@@ -7,6 +7,10 @@ const flash = require("connect-flash");
 const passport = require("passport");
 require("dotenv").config();
 
+const mainRouter = require("./routes/main");
+const authRouter = require("./routes/auth");
+const managerRouter = require("./routes/manager");
+const bookRouter = require("./routes/book");
 const { sequelize } = require("./models");
 const passportConfig = require("./passport");
 
@@ -37,6 +41,11 @@ app.use(
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use("/", mainRouter);
+app.use("/auth", authRouter);
+app.use("/manager", managerRouter);
+app.use("/book", bookRouter);
 
 app.use((req, res, next) => {
   const err = new Error("Not Found");

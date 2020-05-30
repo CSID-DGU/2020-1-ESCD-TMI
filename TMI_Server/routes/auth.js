@@ -6,6 +6,14 @@ const { Manager } = require("../models");
 
 const router = express.Router();
 
+router.get("/login", isNotLoggedIn, async (req, res) => {
+  return res.render("login");
+});
+
+router.get("/join", isNotLoggedIn, async (req, res) => {
+  return res.render("join");
+});
+
 // API 맞추기
 router.post("/join", isNotLoggedIn, async (req, res, next) => {
   const { email, name, password } = req.body;
@@ -13,10 +21,10 @@ router.post("/join", isNotLoggedIn, async (req, res, next) => {
   try {
     const exManager = await Manager.findOne({ where: { email } });
     if (exManager) {
-      // 나중에 사용하기
-      req.flash("joinError", "이미 가입된 이메일입니다.");
       // API 맞추기
-      return res.redirect("/join");
+      return res.render("join", {
+        joinError: req.flash("이미 가입된 이메일입니다."),
+      });
     }
 
     // 사용자 계정 보안
@@ -27,7 +35,7 @@ router.post("/join", isNotLoggedIn, async (req, res, next) => {
       password: hash,
     });
     // API 맞추기
-    return res.redirect("/");
+    return res.redirect("/login");
   } catch (error) {
     console.error(error);
     return next(error);
@@ -42,10 +50,10 @@ router.post("/login", isNotLoggedIn, (req, res, next) => {
       return next(authError);
     }
     if (!manager) {
-      // 나중에 사용하기
-      req.flash("loginError", info.message);
       // API 맞추기
-      return res.redirect("/");
+      return res.render("login", {
+        loginError: info.message,
+      });
     }
     return req.login(manager, (loginError) => {
       if (loginError) {
@@ -53,7 +61,7 @@ router.post("/login", isNotLoggedIn, (req, res, next) => {
         return next(loginError);
       }
       // API 맞추기
-      return res.redirect("/");
+      return res.redirect(`/manager/${manager.id}`);
     });
   })(req, res, next);
 });
