@@ -48,6 +48,7 @@ router.post("/add", isLoggedIn, async (req, res, next) => {
       writer: req.manager.id,
     });
     // 내역 가져오기
+    // 암호화 해서 저장하기
 
     return res.redirect(`/manager/${req.manager.id}`);
   } catch (error) {
@@ -56,6 +57,7 @@ router.post("/add", isLoggedIn, async (req, res, next) => {
   }
 });
 
+// 보류
 router.get("/edit/:id", isLoggedIn, async (req, res) => {
   return res.render("edit");
 });
