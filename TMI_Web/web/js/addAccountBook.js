@@ -2,27 +2,31 @@ document.getElementById('add_account').addEventListener('click',add,false);
 
 function add() {
     var account_name = document.getElementById("account_name").value;
-    var fintech_num = document.getElementById("fintech_num").value;
-    var bank_num = document.getElementById("bank_num").value;
-    var date = document.getElementById("date").value;
+    var account = document.getElementById("account").value;
+    var account_password = document.getElementById("account_password").value;
+    var account_date = document.getElementById("account_date").value;
 
-    /*var http = new XMLHttpRequest();
-    try {
-        http.open('Post',"https://sharesdocument.ml/doc", false );
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.send("user_id=" + user_id + "&doc_id=" + doc_id + "&doc_title=" + doc_title + "&doc_body=" + body + "&todo_count=" + todo_count + "&toggle_count=" + toggle_count ); //doc_alarm 추가
-
-        if(http.readyState === 4 && http.status === 201){
-
-            var response = JSON.parse(http.responseText);
-                //document.location.replace("list.html");
-                location.href = 'list.html'
-        }
-    }catch (e) {
-        alert(e.toString());
+    if(account_name === "" || account === "" || account_password === "" || account_date === "")
+    {
+        alert("내용을 모두 입력해주세요.");
     }
-    */
 
 
-    //alert(date_);
+    var https = new XMLHttpRequest();
+    try{
+        https.open('Get', url + name + "/" + fintech + "/" + email + "/" + password, false);
+        https.send(null);
+
+        if(https.readyState === 4 && https.status === 201) {
+            var response = JSON.parse(https.responseText);
+            //document.location.replace("sign_in.html");
+            location.href = 'sign_in.html'
+        }
+    }
+    catch (e) {
+        alert(e.toString())
+    }
+
+
+    alert(account_date);
 }

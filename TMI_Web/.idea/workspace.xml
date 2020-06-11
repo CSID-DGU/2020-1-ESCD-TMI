@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e089a99-5490-4f30-8a65-88c67a0111af" name="Default Changelist" comment="" />
+    <list default="true" id="4e089a99-5490-4f30-8a65-88c67a0111af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/addAccountBook.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/addAccountBook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/sign_up.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/sign_up.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/addAccountBook.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/addAccountBook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/sign_in.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/sign_in.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/sign_up.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/sign_up.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/sign_up.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1bzkb0E07Vp1Dsu9U8XksqwJOFn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -43,10 +58,22 @@
       <option name="presentableId" value="Default" />
       <updated>1589642376627</updated>
       <workItem from="1589642380298" duration="30000" />
+      <workItem from="1591882896186" duration="3527000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -10,25 +10,25 @@ function sign_in() {
         document.getElementById("email").focus();
         return;
     }
-
-    //alert(email);
-    /*var http = new XMLHttpRequest();
-    try {
-        http.open('Post',"https://sharesdocument.ml/doc", false );
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.send("user_id=" + user_id + "&doc_id=" + doc_id + "&doc_title=" + doc_title + "&doc_body=" + body + "&todo_count=" + todo_count + "&toggle_count=" + toggle_count ); //doc_alarm 추가
-
-        if(http.readyState === 4 && http.status === 201){
-
-            var response = JSON.parse(http.responseText);
-        }
-    }catch (e) {
-        alert(e.toString());
+    else if(password === ""){
+        alert("비밀번호를 입력해주세요.");
+        document.getElementById("password").focus();
     }
-    */
 
-    //document.location.replace("home.html");
-    location.href = 'home.html'
+    var https = new XMLHttpRequest();
+    try{
+        https.open('Get', url + + email + "/" + password, false);
+        https.send(null);
+
+        if(https.readyState === 4 && https.status === 201) {
+            var response = JSON.parse(https.responseText);
+            //document.location.replace("sign_in.html");
+            location.href = 'home.html'
+        }
+    }
+    catch (e) {
+        alert(e.toString())
+    }
     //alert(1);
 }
 
