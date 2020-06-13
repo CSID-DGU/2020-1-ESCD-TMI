@@ -29,7 +29,6 @@ function sign_in() {
     catch (e) {
         alert(e.toString())
     }
-    //alert(1);
 }
 
 function check_email_format() {

@@ -1,7 +1,5 @@
 document.getElementById('sign_up').addEventListener('click',sign_up,false);
 document.getElementById('password2').addEventListener('input',check_password,false);
-document.getElementById('password').addEventListener('input',check_password_reset,false);
-
 var url = "";
 function sign_up() {
 
@@ -13,7 +11,7 @@ function sign_up() {
     if(check_password()){
         alert("비밀번호가 다릅니다.");
     }
-    else if(check_email_format()){
+    else if(!check_email_format()){
         alert("이메일 형식이 아닙니다.")
     }
     else{
@@ -39,11 +37,11 @@ function check_password(){
     var password = document.getElementById("password").value;
     var password2 = document.getElementById("password2").value;
 
-    if(password !== password2){
+    if(password === password2){
         return 0;
     }
     else{
-        return 1
+        return 1;
     }
 }
 

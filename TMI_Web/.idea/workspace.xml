@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e089a99-5490-4f30-8a65-88c67a0111af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/addAccountBook.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/addAccountBook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/sign_up.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/sign_up.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/addAccountBook.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/addAccountBook.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/js/sign_in.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/sign_in.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/js/sign_up.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/sign_up.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/sign_up.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +53,7 @@
       <updated>1589642376627</updated>
       <workItem from="1589642380298" duration="30000" />
       <workItem from="1591882896186" duration="3527000" />
+      <workItem from="1592044175493" duration="385000" />
     </task>
     <servers />
   </component>
@@ -70,7 +65,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
