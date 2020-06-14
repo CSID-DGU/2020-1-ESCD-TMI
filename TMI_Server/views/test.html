@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head> </head>
+
+<body>
+  <% for(var i =0 ; i < name.length ; i++){ %>
+  <li><%= name[i] %></li>
+  <% } %>
+</body>
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <input id="name" />
+  </body>
+  <script>
+    window.onload = function (ev) {
+      var url = "localhost:8001/";
+      var https = new XMLHttpRequest();
+      var name;
+      try {
+        // https.open("Get", url, false);
+        // https.send(null);
+
+        // if (https.readyState === 4 && https.status === 201) {
+        var response = JSON.parse(https.responseText);
+
+        name = response.name;
+        alert(name);
+        document.getElementById("name").innerText = name;
+        // }
+      } catch (e) {
+        alert(e.toString());
+      }
+    };
+  </script>
+</html> -->

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- <link href="css/body.css" type="text/css" rel="stylesheet" />
+  <link href="css/sign_up.css" type="text/css" rel="stylesheet" /> -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>sign up</title>
+  </head>
+  <body>
+    <div class="login_box">
+      <div><h1>Sign up</h1></div>
+      <form action="/auth/join" method="post" onsubmit="return check()">
+        <input type="text" id="name" name="name" placeholder=" Your name" />
+        <input type="text" id="email" name="email" placeholder=" Email" />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder=" Password"
+        />
+        <input type="password" id="password2" placeholder=" Password 확인" />
+        <input type="submit" value="Sign up" />
+      </form>
+    </div>
+  </body>
+  <script>
+    function check() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      if (name === "") {
+        alert("이름을 입력해주세요.");
+        return false;
+      } else if (email === "") {
+        alert("이메일을 입력해주세요.");
+        return false;
+      } else if (password === null) {
+        alert("비밀번호를 입력해주세요.");
+        return false;
+      } else if (!check_email_format()) {
+        alert("이메일 형식이 아닙니다.");
+        return false;
+      } else if (check_password()) {
+        alert("비밀번호가 다릅니다.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    function check_password() {
+      var password = document.getElementById("password").value;
+      var password2 = document.getElementById("password2").value;
+
+      if (password === password2) {
+        return 0;
+      } else {
+        return 1;
+      }
+    }
+
+    function check_email_format() {
+      var email = document.getElementById("email").value;
+      var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
+      if (!reg_email.test(email)) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  </script>
+</html>
