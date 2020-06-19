@@ -7,11 +7,11 @@ const { Manager } = require("../models");
 const router = express.Router();
 
 router.get("/login", isNotLoggedIn, async (req, res) => {
-  return res.render("login");
+  return res.render("login.html");
 });
 
 router.get("/join", isNotLoggedIn, async (req, res) => {
-  return res.render("join");
+  return res.render("join.html");
 });
 
 // API 맞추기
@@ -22,7 +22,7 @@ router.post("/join", isNotLoggedIn, async (req, res, next) => {
     const exManager = await Manager.findOne({ where: { email } });
     if (exManager) {
       // API 맞추기
-      return res.render("join", {
+      return res.render("join.html", {
         joinError: req.flash("이미 가입된 이메일입니다."),
       });
     }
@@ -35,7 +35,7 @@ router.post("/join", isNotLoggedIn, async (req, res, next) => {
       password: hash,
     });
     // API 맞추기
-    return res.redirect("/login");
+    return res.redirect("/auth/login");
   } catch (error) {
     console.error(error);
     return next(error);
@@ -51,7 +51,7 @@ router.post("/login", isNotLoggedIn, (req, res, next) => {
     }
     if (!manager) {
       // API 맞추기
-      return res.render("login", {
+      return res.render("login.html", {
         loginError: info.message,
       });
     }

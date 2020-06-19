@@ -19,7 +19,11 @@ sequelize.sync();
 passportConfig(passport);
 
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+
+// app.set("view engine", "pug");
+app.engine("html", require("ejs").renderFile);
+app.set("view engine", "html");
+
 app.set("port", process.env.PORT || 8001);
 
 app.use(morgan("dev"));
