@@ -8,7 +8,80 @@
 </head>
 <body>
 <div class="word_box">
+    <div><h1>세부내역 추가하기</h1></div><!DOCTYPE html>
+<html lang="en">
+<link href="css/detail.css" type="text/css" rel="stylesheet" />
+<link href="css/body.css" type="text/css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <title>세부내역 입력</title>
+</head>
+<body>
+<div class="word_box">
     <div><h1>세부내역 추가하기</h1></div>
+    <div>
+        <form action= "~서버 스크립트~" name = "detail_send" method ="post">
+        <input type="text" id = "username" placeholder=" 사용자 이름">
+        <h4>물품 및 가격</h4>
+		<div id="txtPanel"></div>
+        <input type='text' id="stuff" placeholder ='상품명'>
+        <input type='text' id="price" placeholder ='가격'/><br />
+    </div>
+    <input type ="submit" value = "등록하기">
+    </form>
+</div>
+</body>
+<script>
+/*
+    
+    // 버튼 태그
+    <input type="button" value="  추가하기  " onclick="CreateTextBox();"><br>
+    <input type="button" value="  전체삭제  " onclick="DeleteTextBox();"><br>
+    <input type="button" value=" 저장하기 " onclick = "save();"><br>
+
+
+var i = 0;
+var list = new Array();
+
+function limem() //세부내역 리스트 멤버
+    {
+        var stuff = "";
+        var price = "";
+        var name = "";
+       
+    }
+
+function CreateTextBox() // 세부내역 추가
+   {
+        list[i] = new limem();
+        var txt1 = "<input type='textarea' id='stuff"+i+"' ' placeholder ='상품명' />";
+        var txt2 = "<input type='textarea' id='price"+i+"' placeholder ='가격'/><br />";
+        document.getElementById("txtPanel").innerHTML += (txt1 + txt2);
+        i++;
+
+   }
+ 
+
+function DeleteTextBox() // 세부내역 삭제
+    {
+           document.getElementById("txtPanel").innerHTML = "";
+    }
+
+
+
+function save()
+    {
+        for(var j=0;j<i;j++)
+        {
+            list[j].stuff = document.getElementById("stuff"+j).value;
+            list[j].price = document.getElementById("price"+j).value;
+            list[j].name = document.getElemntById("username").value;
+        }
+    }
+
+    */
+</script>
+</html>
     <div>
         <input type="text" id = "name" placeholder=" 사용자 이름">
 		<div id="txtPanel"></div>
