@@ -14,4 +14,66 @@
 </body>
 <script type="js/using.js">
 </script>
+</html><!DOCTYPE html>
+<html lang="en">
+<link href="css/using.css" type="text/css" rel="stylesheet" />
+<link href="css/body.css" type="text/css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <title>세부내역 보여주기</title>
+</head>
+<body>
+<div class="show_box">
+    <div><h1>세부내역 보여주기</h1></div> 
+    <form action ="" method="post">
+<ol> 날짜 
+    <% for(var i = 0; i< list.length; i++) { %>
+        <li> <%= list[i].date; %> </li>
+    <% } %> 
+</ol>
+<ol> 시간 
+    <% for(var i = 0; i< list.length; i++) { %>
+        <li> <%= list[i].time; %> </ol>
+    <% } %>
+</ol>   
+<ol> 입출금 유형 
+    <% for(var i = 0; i< list.length; i++) { %>
+        <ol> <%= list[i].inOrOut; %> </ol>
+    <% } %>  
+</ol>
+<ol> 현금/카드 
+    <% for(var i = 0; i< list.length; i++) { %>
+        <ol> <%= list[i].transcationType; %> </ol>
+    <% } %> 
+</ol>
+<ol> 은행 정보 
+    <% for(var i = 0; i< list.length; i++) { %>
+        <ol> <%= list[i].bankContent; %> </ol>
+    <% } %> 
+</ol>
+<ol> 사용자 정보 
+    <% for(var i = 0; i< list.length; i++) { %>
+        <ol> <%= list[i].UserContent; %> </ol>
+    <% } %> 
+</ol>
+<ol> 금액 
+    <% for(var i = 0; i< list.length; i++) { %>
+        <ol> <%= list[i].money; %> </ol>
+    <% } %>
+</ol>     
+<ol> 잔액 
+    <% for(var i = 0; i< list.length; i++) { %>
+        <ol> <%= list[i].balance; %> </ol>
+    <% } %> 
+</ol>
+    </form>
+</div>
+</body>
+<script>   
+</script>
 </html>
+
+
+ <li> 날짜 </li>
+    <% for(var i = 0; i< list.length; i++) { %>
+        <ol> <%= list[i].date; %> </ol>
