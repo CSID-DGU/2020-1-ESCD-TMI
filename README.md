@@ -12,3 +12,7 @@
 - Oauth방식을 참고해 클라이언트가 Authorizationserver에 인증 요청 하면 Authorization code를 클라이언트에게 발급
 - 해당 Access token을 이용하여 장부에 접근할 수 있고 토큰이 만료된다면 refresh token을 이용하여 토큰을 재발급 
 - OWASP ZAP(오와스프 잽)를 사용해 웹사이트가 시큐어 한지 분석하고 검증 하였습니다. 
+
+### 역할
+- 프론트엔드 : 손정인, 이승민
+- 백엔드 : 김규리, 조인택
