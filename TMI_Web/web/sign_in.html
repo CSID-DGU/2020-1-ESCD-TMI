@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body{
+        width: 100%;
+        height: 100vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        background-color: lightgray;
+    }
+
+    h1{
+        margin-top: 100px;
+        color: #47525E;
+    }
+
+    input{
+        margin-top: 20px;
+        height: 40px;
+        width: 200px;
+        border-style: solid;
+        border-color: #8492A6;
+        border-radius: 10px;
+    }
+
+    button {
+        margin-top: 40px;
+        height: 40px;
+        width: 200px;
+        background-color: #47525E;
+        border-radius: 10px;
+        color: white;
+    }
+
+    .login_box{
+        text-align: center;
+        background-color: white;
+        width: 400px;
+        height: 500px;
+    }
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>sign in</title>
+</head>
+<body>
+<div class="login_box">
+    <div><h1>Sign in</h1></div>
+    <form action = "/auth/login" method = "get" onsubmit="return check()">
+        <input type="text" name = "email" id="email"placeholder=" Email">
+        <input type="password" name="password" id="password" placeholder=" Password">
+        <input type ="submit" value="Sign in">
+    </form>
+</div>
+</body>
+<script>
+    function check() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        if(email === ""){
+            alert("이메일을 입력해 주세요.");
+            document.getElementById("email").focus();
+            return false;
+        }
+        else if(password === ""){
+            alert("비밀번호를 입력해주세요.");
+            document.getElementById("password").focus();
+            return false;
+        }
+        else if(!check_email_format(email)){
+            alert("이메일 형식이 잘못되었습니다.")
+            document.getElementById("email").focus();
+            return false;
+        }
+        else if(password === ""){
+            alert("비밀번호를 입력해주세요.");
+            document.getElementById("password").focus();
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    function check_email_format() {
+        var email = document.getElementById("email").value;
+        var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
+        if(!reg_email.test(email)){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+</script>
+<script src="js/sign_in.js"></script>
+</html>

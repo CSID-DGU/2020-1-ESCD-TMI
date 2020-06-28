@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <link href="/css/home.css" type="text/css" rel="stylesheet" /> -->
+
+<style>
+    body{
+        width: 100%;
+        height: 100vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        background-color: lightgray;
+    }
+</style>
+<head>
+    <!-- <link rel="stylesheet" href="../css/lib/fontawesome/css/all.min.css" /> -->
+    <meta charset="UTF-8" />
+    <title>홈화면</title>
+    <style>
+        .homebox {
+            text-align: center;
+            background-color: white;
+            width: 400px;
+            height: 600px;
+        }
+
+        h1 {
+            margin-top: 100px;
+            color: #47525e;
+        }
+
+        input[type="text"] {
+            margin-top: 20px;
+            height: 40px;
+            width: 200px;
+            border-style: solid;
+            border-color: #8492a6;
+            border-radius: 10px;
+        }
+
+        input[type="button"] {
+            margin-top: 20px;
+            height: 40px;
+            width: 200px;
+            border-style: solid;
+            border-color: #8492a6;
+            border-radius: 10px;
+        }
+
+        button {
+            margin-top: 40px;
+            height: 40px;
+            width: 200px;
+            background-color: #47525e;
+            border-radius: 10px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<div class="homebox" >
+    <div style=" margin-top: 5%;
+            float: right;
+            margin-right: 7%;
+            display: flex;">
+
+        <div style="margin-left: 20px;">
+            <form action = "/auth/logout" method = "get">
+                <input type ="submit" value="로그아웃" style="background-color:transparent;  border:0px transparent solid;">
+            </form>
+        </div>
+        <div style="margin-left: 20px;" onclick="home()">Home</div>
+        <div style="margin-left: 20px;" onclick="add()">장부 추가하기</div>
+    </div>
+    <div>
+        <h1>OPEN BANKING 장부 관리<br> 시스템</h1>
+    </div>
+    <br /><br />
+    <div>
+        <h3>찾으실 장부 이름을 입력해주세요</h3>
+        <form action=/search method="POST">
+            <input type="text" id="name" name="name" placeholder=" 장부 이름" />
+            <input type="submit" value="검색하기" />
+        </form>
+    </div>
+</div>
+</body>
+
+</html>
