@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const { isLoggedIn, isNotLoggedIn } = require("./middlewares");
 const { Manager, Book, List } = require("../models");
+const list = require("../models/list");
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ router.get("/:id", isLoggedIn, async (req, res, next) => {
       where: {
         writer: req.params.id,
       },
-      order: [["createdAt", "DESC"]],
+      order: [["createdAt", "ASC"]],
     });
 
     // 보안 설정
@@ -23,10 +24,11 @@ router.get("/:id", isLoggedIn, async (req, res, next) => {
     }
 
     if (books) {
-      // return res.render("manager", {
-      //   books: books,
-      // });
-      return res.send("명부 출력 페이지 필요");
+      return res.render("mypage.html", {
+        books: books,
+        user: req.user,
+      });
+      // return res.send("명부 출력 페이지 필요");
     } else {
       // return res.render("manager", {
       //   noBooks: req.flash("작성된 명부가 없습니다."),
@@ -40,6 +42,9 @@ router.get("/:id", isLoggedIn, async (req, res, next) => {
 });
 
 router.get("/:id/add", isLoggedIn, async (req, res, next) => {
+  if (req.user.id != req.params.id) {
+    return res.send("잘못된 접근");
+  }
   return res.render("addBook.html");
 });
 
@@ -64,8 +69,75 @@ router.post("/add", isLoggedIn, async (req, res, next) => {
   }
 });
 
+// 장부 클릭하면 세부내역 렌더링
+router.get("/:id/check/:bookId", isLoggedIn, async (req, res, next) => {
+  try {
+    const books = await Book.findAll({
+      where: {
+        writer: req.params.id,
+      },
+      order: [["createdAt", "ASC"]],
+    });
+
+    const list = await List.findAll({
+      where: {
+        ofWhom: books[Number(req.params.bookId) - 1].id,
+      },
+      order: [["createdAt", "ASC"]],
+    });
+
+    // if (req.user.id != req.params.id) {
+    //   return res.send("잘못된 접근");
+    // }
+
+    return res.render("list.html", {
+      list: list,
+      address: `/manager/${req.user.id}/check/${req.params.bookId}/edit`,
+      address2: `/manager/${req.user.id}`,
+    });
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+});
+
+router.post("/:id/check/:bookId/edit", isLoggedIn, async (req, res, next) => {
+  return res.render("addList.html", {
+    address: `/manager/${req.user.id}/edit/${req.params.bookId}`,
+  });
+})
+
 // 보류
-router.get("/edit/:id", isLoggedIn, async (req, res) => {
-  return res.render("edit");
+router.post("/:id/edit/:bookId", isLoggedIn, async (req, res, next) => {
+  if (req.user.id != req.params.id) {
+    return res.send("잘못된 접근");
+  }
+
+  const books = await Book.findAll({
+    where: {
+      writer: req.params.id,
+    },
+    order: [["createdAt", "ASC"]],
+  });
+
+  try {
+    await List.create({
+      date: "2020-01-01",
+      time: "24:00",
+      inOrOut: "입금",
+      transactionType: "카드",
+      bankContent: "",
+      UserContent: req.body.userContent,
+      money: req.body.price,
+      balance: "10000",
+      where: "카페",
+      ofWhom: books[Number(req.params.bookId) - 1].id,
+    });
+
+    return res.redirect(`/manager/${req.user.id}/check/${req.params.bookId}`)
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
 });
 module.exports = router;

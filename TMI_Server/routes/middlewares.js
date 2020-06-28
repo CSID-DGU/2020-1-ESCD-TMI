@@ -11,6 +11,8 @@ exports.isNotLoggedIn = (req, res, next) => {
     next();
   } else {
     // 장부 출력 화면
-    res.redirect("/");
+    res.redirect("/", {
+      user: req.user,
+    });
   }
 };

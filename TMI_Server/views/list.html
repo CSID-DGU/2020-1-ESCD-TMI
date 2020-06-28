@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="/css/using.css" type="text/css" rel="stylesheet" />
+<link href="/css/body.css" type="text/css" rel="stylesheet" />
+
+<head>
+  <meta charset="UTF-8" />
+  <title>세부내역 보여주기</title>
+  <style>
+    ol {
+      float: left;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="show_box">
+    <div>
+      <h1>세부내역 보여주기</h1>
+    </div>
+    <ol> 날짜
+      <% for(var i = 0; i< list.length; i++) { %>
+      <li> <%= list[i].date; %> </li>
+      <% } %>
+    </ol>
+    <ol> 시간
+      <% for(var i = 0; i< list.length; i++) { %>
+      <li> <%= list[i].time; %> </li>
+      <% } %>
+    </ol>
+    <ol> 입출금 유형
+      <% for(var i = 0; i< list.length; i++) { %>
+      <li> <%= list[i].inOrOut; %> </li>
+      <% } %>
+    </ol>
+    <ol> 현금/카드
+      <% for(var i = 0; i< list.length; i++) { %>
+      <li> <%= list[i].transcationType; %> </li>
+      <% } %>
+    </ol>
+    <ol> 은행 정보
+      <% for(var i = 0; i< list.length; i++) { %>
+      <li> <%= list[i].bankContent; %> </li>
+      <% } %>
+    </ol>
+    <ol> 사용자 정보
+      <% for(var i = 0; i< list.length; i++) { %>
+      <li> <%= list[i].UserContent; %> </li>
+      <% } %>
+    </ol>
+    <ol> 금액
+      <% for(var i = 0; i< list.length; i++) { %>
+      <li> <%= list[i].money; %> </li>
+      <% } %>
+    </ol>
+    <ol> 잔액
+      <% for(var i = 0; i< list.length; i++) { %>
+      <li> <%= list[i].balance; %> </li>
+      <% } %>
+    </ol>
+    <div style=" margin-top: -20%;
+            float: right;
+            margin-right: 7%;
+            display: flex;">
+      <div style="margin-left: 20px;">
+        <form action=<%= address %> method="post">
+          <input type="submit" value="세부내역 추가" style="background-color:transparent;  border:0px transparent solid;">
+        </form>
+        <div style="margin-left: 20px;" onclick="move()">마이 페이지</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  function move(elem) {
+    window.location.href = '<%= address2%>';
+  }
+</script>
+
+</html>

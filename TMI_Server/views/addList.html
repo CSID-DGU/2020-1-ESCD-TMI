@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="/css/detail.css" type="text/css" rel="stylesheet" />
+<link href="/css/body.css" type="text/css" rel="stylesheet" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>세부내역 입력</title>
+</head>
+
+<body>
+    <div class="word_box">
+        <div>
+            <h1>세부내역 추가하기</h1>
+        </div>
+        <div>
+            <form action=<%= address %> name="detail_send" method="post">
+                <h4>물품 및 가격</h4>
+                <div id="txtPanel"></div>
+                <input type='text' id="userContent" name="userContent" placeholder='상품명'>
+                <input type='text' id="price" name="price" placeholder='가격' /><br />
+        </div>
+        <input type="submit" value="등록하기">
+        </form>
+    </div>
+</body>
+<script>
